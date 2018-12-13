@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demogod-deployment
+  labels:
+    app: demogod
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: demogod
+  template:
+    metadata:
+      labels:
+        app: demogod
+    spec:
+      containers:
+      - name: demogod
+        image: albertpaulp/demogod:v1
+        ports:
+        - containerPort: 8080
